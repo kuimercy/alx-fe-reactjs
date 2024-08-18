@@ -1,8 +1,8 @@
-function MainComponent() {
+function MainContent() {
   return (
     <main>
       <p>I love to visit New York, Paris, and Tokyo.</p>
     </main>
   );
 }
-export default MainComponent;
+export default MainContent;
