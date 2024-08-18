@@ -1,13 +1,17 @@
-import { useState } from "react";
-
 import "./App.css";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import MainComponent from "./components/MainContent";
 import WelcomeMessage from "./components/WelcomeMessage";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
+    <div className="App">
       <WelcomeMessage/>
+      <Header/>
+      <MainComponent/>
+      <Footer/>
+      </div>
   );
 }
 
