@@ -1,12 +1,13 @@
 import  { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const RecipeDetail = () => {
-  const { id } = useParams(); // Get the recipe ID from the URL
+  const { id } = useParams(); 
   const [recipe, setRecipe] = useState(null);
 
   useEffect(() => {
-    // Fetch recipe data based on the ID
+    
     fetch('/data.json')
       .then((response) => response.json())
       .then((data) => {
@@ -24,6 +25,7 @@ const RecipeDetail = () => {
     <div className="container mx-auto py-8 px-4">
       <div className="bg-white shadow-lg rounded-lg p-6 mb-8">
         <h1 className="text-4xl font-bold mb-4">{recipe.title}</h1>
+        <Link to={`/recipe/${recipe.id}`}></Link>
         <img className="w-full h-64 object-cover mb-8 shadow-md rounded-md" src={recipe.image} alt={recipe.title} />
         <div className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">Ingredients</h2>
