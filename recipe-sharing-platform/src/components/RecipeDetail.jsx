@@ -21,25 +21,23 @@ const RecipeDetail = () => {
   }
 
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto py-8 px-4">
       <h1 className="text-4xl font-bold mb-4">{recipe.title}</h1>
       <img className="w-full h-64 object-cover mb-8" src={recipe.image} alt={recipe.title} />
       <div className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Ingredients</h2>
-        <ul className="list-disc list-inside">
-         
-          <li>Ingredient 1</li>
-          <li>Ingredient 2</li>
-          <li>Ingredient 3</li>
+        <ul className="list-disc list-inside mb-8">
+          {recipe.ingredients.map((ingredient, index) => (
+            <li key={index} className="text-gray-700">{ingredient}</li>
+          ))}
         </ul>
       </div>
       <div>
-        <h2 className="text-2xl font-semibold mb-4">Cooking Steps</h2>
+        <h2 className="text-2xl font-semibold mb-4">Instructions</h2>
         <ol className="list-decimal list-inside">
-         
-          <li>Step 1</li>
-          <li>Step 2</li>
-          <li>Step 3</li>
+          {recipe.instructions.map((instruction, index) => (
+            <li key={index} className="text-gray-700">{instruction}</li>
+          ))}
         </ol>
       </div>
     </div>
@@ -47,3 +45,4 @@ const RecipeDetail = () => {
 };
 
 export default RecipeDetail;
+
