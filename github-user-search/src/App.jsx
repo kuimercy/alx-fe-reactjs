@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import TodoList from './components/TodoList';
@@ -25,38 +26,34 @@ const App = () => {
     }
   };
 
-
-function App() {
   return (
- <div>
-        <h1 className="text-center text-3xl font-bold mb-6">GitHub User Search</h1>
-        <Search onSearch={handleSearch} />
-      </div>
-
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      {user && (
-        <div>
-          <img src={user.avatar_url} alt={user.login} width="100" />
-          <h2>{user.login}</h2>
-          <a href={user.html_url} target="_blank" rel="noopener noreferrer">
-            View Profile
-          </a>
-        </div>
-      )}
-
-
     <Router>
-<div className="app-container">
-  <Routes>
-  <Route path="/" element={<TodoList />} />
+      <div className="app-container">
+        <h1 className="text-center text-3xl font-bold mb-6">GitHub User Search</h1>
+        
+        {/* GitHub User Search Section */}
+        <Search onSearch={handleSearch} />
+        {loading && <p>Loading...</p>}
+        {error && <p>{error}</p>}
+        {user && (
+          <div className="user-profile">
+            <img src={user.avatar_url} alt={user.login} width="100" />
+            <h2>{user.login}</h2>
+            <a href={user.html_url} target="_blank" rel="noopener noreferrer">
+              View Profile
+            </a>
+          </div>
+        )}
+        
+        {/* Todo App Section */}
+        <Routes>
+          <Route path="/" element={<TodoList />} />
           <Route path="/add-todo" element={<AddTodo />} />
-
-  </Routes>
-  <Search/>
-</div>
+        </Routes>
+      </div>
     </Router>
- );
-}
+  );
+};
 
 export default App;
+
